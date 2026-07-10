@@ -1,0 +1,8 @@
+data
+notebooks
+target
+docker
+docker-compose.yml
+*.json
+logs
+__pycache__

@@ -1,0 +1,10 @@
+tables:
+  - name: name.basics.tsv.gz
+  - name: title.akas.tsv.gz
+  - name: title.basics.tsv.gz
+  - name: title.crew.tsv.gz
+  - name: title.episode.tsv.gz
+  - name: title.principals.tsv.gz
+  - name: title.ratings.tsv.gz
+local_path: /opt/airflow/data
+gcs_path: "gs://imdb-de/bronze"
