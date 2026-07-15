@@ -1,0 +1,14 @@
+default_args:
+  owner: "imdb"
+  retries: 0
+  retry_delay: 5
+dag_configs:
+  - dag_id: "ingestion_dag"
+    schedule_interval: null
+    max_active_runs: 1
+    catchup: false
+    start_date: "2025-05-05"
+    tasks:
+      - task_id: bronze
+        cwd: "/opt/airflow"
+        bash_command: "java --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED -cp /opt/airflow/app/my-spark-app.jar com.imdb.bronze.Ingestion"
