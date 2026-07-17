@@ -1,0 +1,175 @@
+storage:
+  gcs_bronze: "gs://imdb-de/bronze"
+  gcs_silver: "gs://imdb-de/silver"
+
+tables:
+  - name: name_basics
+    description: Thông tin cơ bản về những người tham gia trong ngành điện ảnh
+    schema:
+      - name: nconst
+        rename: person_id
+        type: STRING
+        description: Mã định danh duy nhất của một người
+      - name: primaryName
+        rename: primary_name
+        type: STRING
+        description: Tên chính của người
+      - name: birthYear
+        rename: birth_year
+        type: INTEGER
+        description: Năm sinh
+      - name: deathYear
+        rename: death_year
+        type: INTEGER
+        description: Năm mất
+      - name: primaryProfession
+        rename: primary_professions
+        type: STRING
+        description: Danh sách nghề nghiệp chính
+      - name: knownForTitles
+        rename: known_for_titles
+        type: STRING
+        description: Danh sách mã phim
+
+  - name: title_akas
+    description: Thông tin về các tên thay thế của phim
+    schema:
+      - name: titleId
+        rename: title_id
+        type: STRING
+        description: Mã định danh của phim
+      - name: ordering
+        type: INTEGER
+        description: Thứ tự của tên thay thế trong danh sách của bộ phim
+      - name: title
+        type: STRING
+        description: Tên thay thế
+      - name: region
+        type: STRING
+        description: Khu vực sử dụng tên
+      - name: language
+        type: STRING
+        description: Ngôn ngữ của tên phim
+      - name: types
+        type: STRING
+        description: Loại tên thay thế
+      - name: attributes
+        type: STRING
+        description: Thuộc tính bổ sung của tên phim
+      - name: isOriginalTitle
+        rename: is_original_title
+        type: BOOLEAN
+        description: Xác định tên này có phải là tên gốc của phim hay không
+
+  - name: title_basics
+    description: Thông tin cơ bản của phim
+    schema:
+      - name: tconst
+        rename: title_id
+        type: STRING
+        description: Mã định danh duy nhất của phim
+      - name: titleType
+        rename: title_type
+        type: STRING
+        description: Loại nội dung
+      - name: primaryTitle
+        rename: primary_title
+        type: STRING
+        description: Tên hiển thị chính
+      - name: originalTitle
+        rename: original_title
+        type: STRING
+        description: Tên gốc
+      - name: isAdult
+        rename: is_adult
+        type: BOOLEAN
+        description: Cho biết nội dung có giới hạn độ tuổi hay không
+      - name: startYear
+        rename: start_year
+        type: INTEGER
+        description: Năm phát hành
+      - name: endYear
+        rename: end_year
+        type: INTEGER
+        description: Năm kết thúc phát sóng
+      - name: runtimeMinutes
+        rename: runtime_minutes
+        type: INTEGER
+        description: Thời lượng
+      - name: genres
+        type: STRING
+        description: Danh sách thể loại
+
+  - name: title_crew
+    description: Thông tin về đội ngũ sản xuất chính của phim
+    schema:
+      - name: tconst
+        rename: title_id
+        type: STRING
+        description: Mã định danh của phim
+      - name: directors
+        type: STRING
+        description: Danh sách mã người đạo diễn phim
+      - name: writers
+        type: STRING
+        description: Danh sách mã người viết kịch bản phim
+
+  - name: title_episode
+    description: Thông tin các tập thuộc một chương trình truyền hình
+    schema:
+      - name: tconst
+        rename: title_id
+        type: STRING
+        description: Mã định danh của tập phim
+      - name: parentTconst
+        rename: parent_title_id
+        type: STRING
+        description: Mã định danh của chương trình cha
+      - name: seasonNumber
+        rename: season_number
+        type: INTEGER
+        description: Số mùa
+      - name: episodeNumber
+        rename: episode_number
+        type: INTEGER
+        description: Số thứ tự tập phim trong mùa
+
+  - name: title_principals
+    description: Danh sách các nhân sự chính tham gia vào phim
+    schema:
+      - name: tconst
+        rename: title_id
+        type: STRING
+        description: Mã định danh của phim
+      - name: ordering
+        type: INTEGER
+        description: Thứ tự hiển thị của nhân sự
+      - name: nconst
+        rename: person_id
+        type: STRING
+        description: Mã định danh của người tham gia
+      - name: category
+        type: STRING
+        description: Vai trò của người tham gia
+      - name: job
+        type: STRING
+        description: Công việc cụ thể của người đó trong phim
+      - name: characters
+        type: STRING
+        description: Danh sách nhân vật được thể hiện trong phim
+
+  - name: title_ratings
+    description: Thông tin đánh giá của người dùng dành cho phim
+    schema:
+      - name: tconst
+        rename: title_id
+        type: STRING
+        description: Mã định danh của phim
+      - name: averageRating
+        rename: average_rating
+        type: FLOAT
+        description: Điểm đánh giá trung bình của phim
+      - name: numVotes
+        rename: num_votes
+        type: INTEGER
+        description: Số lượng lượt đánh giá của người dùng
