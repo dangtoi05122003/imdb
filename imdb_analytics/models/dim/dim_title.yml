@@ -1,0 +1,8 @@
+version: 2
+models:
+  - name: dim_title
+    columns:
+      - name: title_id
+        tests:
+          - not_null
+          - unique

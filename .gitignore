@@ -6,3 +6,5 @@ docker-compose.yml
 *.json
 logs
 __pycache__
+profiles.yml
+.user.yml

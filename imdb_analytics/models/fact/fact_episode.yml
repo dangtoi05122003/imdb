@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: fact_episode
+    columns:
+      - name: title_id
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('dim_title')
+              field: title_id

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: fact_principal
+    columns:
+      - name: title_id
+        tests:
+          - not_null
+      - name: person_id
+        tests:
+          - not_null

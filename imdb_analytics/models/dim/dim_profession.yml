@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_profession
+    columns:
+      - name: person_id
+        tests:
+          - not_null
+      - name: profession
+        tests:
+          - not_null

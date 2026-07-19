@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: imdb
+    tables:
+      - name: name_basics
+        external:
+          location: "gs://imdb-de/silver/name_basics/*.parquet"
+          options:
+            format: "PARQUET"
+      - name: title_akas
+        external:
+          location: "gs://imdb-de/silver/title_akas/*.parquet"
+          options:
+            format: "PARQUET"
+      - name: title_basics
+        external:
+          location: "gs://imdb-de/silver/title_basics/*.parquet"
+          options:
+            format: "PARQUET"
+      - name: title_episode
+        external:
+          location: "gs://imdb-de/silver/title_episode/*.parquet"
+          options:
+            format: "PARQUET"
+      - name: title_principals
+        external:
+          location: "gs://imdb-de/silver/title_principals/*.parquet"
+          options:
+            format: "PARQUET"
+      - name: title_ratings
+        external:
+          location: "gs://imdb-de/silver/title_ratings/*.parquet"
+          options:
+            format: "PARQUET"

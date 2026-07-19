@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fact_rating
+    columns:
+      - name: title_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_title')
+              field: title_id
+      - name: average_rating
+        tests:
+          - not_null

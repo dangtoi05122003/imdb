@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_genre
+    columns:
+      - name: title_id
+        tests:
+          - not_null
+      - name: genre
+        tests:
+          - not_null
